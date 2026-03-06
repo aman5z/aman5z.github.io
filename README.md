@@ -1,6 +1,5 @@
-# aman5z.github.io
 # PROFESSIONAL PROFILE SUMMARY
-## Aman Faizal (أمان فيصل)
+## Aman Faizal
 
 ---
 
