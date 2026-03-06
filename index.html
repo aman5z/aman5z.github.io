@@ -1,12 +1,280 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Aman Faizal Portfolio</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aman Faizal | IT Administrator</title>
+
+<style>
+
+body{
+background:#0f1117;
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+header{
+padding:60px;
+text-align:center;
+background:#151a22;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.tag{
+color:#00d4ff;
+}
+
+.section{
+padding:60px 10%;
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1b2230;
+padding:20px;
+border-radius:10px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.project{
+background:#1b2230;
+padding:20px;
+border-radius:10px;
+}
+
+.project h3{
+color:#00d4ff;
+}
+
+a{
+color:#00d4ff;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#151a22;
+}
+
+button{
+background:#00d4ff;
+border:none;
+padding:12px 25px;
+border-radius:6px;
+font-weight:bold;
+margin-top:20px;
+cursor:pointer;
+}
+
+</style>
 </head>
 
 <body>
-<h1>Aman Faizal</h1>
-<p>IT Administrator | Networking | Linux</p>
-</body>
 
+<header>
+
+<h1>Aman Faizal</h1>
+
+<p class="tag">
+IT Administrator | Infrastructure | Networking | Cybersecurity
+</p>
+
+<p>
+Managing enterprise IT systems, networks, cloud infrastructure,
+and automation environments.
+</p>
+
+<button onclick="document.getElementById('projects').scrollIntoView()">
+View Projects
+</button>
+
+</header>
+
+
+<section class="section">
+
+<h2>About Me</h2>
+
+<p>
+IT Administrator based in UAE with experience managing servers,
+networks, virtualization, and cloud infrastructure. Currently
+handling campus-wide IT systems supporting thousands of users.
+
+I actively build home-lab environments using Proxmox, Docker,
+VPN networking, and cloud platforms to experiment with modern
+infrastructure technologies.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="card">
+<h3>Infrastructure</h3>
+Windows Server<br>
+Linux Administration<br>
+Active Directory<br>
+Backup Systems
+</div>
+
+<div class="card">
+<h3>Networking</h3>
+LAN / WAN<br>
+VLAN<br>
+Firewall Management<br>
+Network Monitoring
+</div>
+
+<div class="card">
+<h3>Cloud</h3>
+AWS<br>
+Cloudflare Tunnel<br>
+Docker<br>
+Virtualization
+</div>
+
+<div class="card">
+<h3>Security</h3>
+Ethical Hacking<br>
+Penetration Testing<br>
+Network Security
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="projects">
+
+<h2>Featured Projects</h2>
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3>AIO Virtualization Server</h3>
+
+<p>
+Converted an old HP laptop into a Proxmox virtualization server
+running multiple operating systems and containers.
+</p>
+
+<p>
+Tech: Proxmox, Docker, Tailscale, Cloudflare Tunnel
+</p>
+
+<a href="#">GitHub</a> |
+<a href="#">Demo Video</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>Smart Home Automation</h3>
+
+<p>
+IoT automation system using ESP8266 and voice assistants to
+control lights, appliances, and energy usage.
+</p>
+
+<p>
+Tech: ESP8266, Tasmota, Alexa, Google Assistant
+</p>
+
+<a href="#">Blog</a> |
+<a href="#">Video</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>Villa Network Infrastructure</h3>
+
+<p>
+Designed a network for 160+ users across 35 rooms with
+monitoring and uptime management.
+</p>
+
+<p>
+Tech: TP-Link, Proxmox, Nagios, Zabbix
+</p>
+
+<a href="#">Documentation</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Home Lab</h2>
+
+<p>
+My personal lab environment allows testing enterprise
+technologies using affordable hardware.
+</p>
+
+<ul>
+
+<li>Proxmox Virtualization</li>
+<li>Nextcloud Private Cloud</li>
+<li>Tailscale VPN Network</li>
+<li>Cloudflare Secure Remote Access</li>
+<li>Asterisk VoIP Server</li>
+<li>Plex & Jellyfin Media Servers</li>
+
+</ul>
+
+</section>
+
+
+<section class="section">
+
+<h2>Contact</h2>
+
+<p>Email: amanfaizal@outlook.com</p>
+<p>LinkedIn: linkedin.com/in/aman5z</p>
+<p>Website: aman5z.in</p>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Aman Faizal</p>
+
+</footer>
+
+</body>
 </html>
