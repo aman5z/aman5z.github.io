@@ -1053,7 +1053,10 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 </a>
 
 <!-- Theme Toggle -->
-
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed; top:20px; right:24px; z-index:9000; display:flex; align-items:center; gap:8px; padding:9px 16px; border-radius:40px; background:var(--toggle-bg); border:1px solid var(--toggle-border); color:var(--toggle-c); font-family:var(--font-mono); font-size:11px; letter-spacing:0.5px; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.25); transition:all 0.25s; white-space:nowrap; user-select:none;">
+  <span class="toggle-icon" id="toggle-icon">☀️</span>
+  <span id="toggle-label">Light Mode</span>
+</button>
 
 <!-- ══ HERO ══ -->
 <div class="hero">
@@ -1217,7 +1220,25 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 
 
 
-
+<!-- EDUCATION -->
+<div class="bio-section">
+  <div class="section-h2">Education</div>
+  <div class="timeline-wrap">
+    <div class="timeline-item">
+      <h4>Master of Business Administration (MBA)</h4>
+      <div class="timeline-meta">Information Technology Project Management · Amity University · 2026–2028 (In Progress)</div>
+    </div>
+    <div class="timeline-item">
+      <h4>Bachelor of Arts — Sociology</h4>
+      <div class="timeline-meta">SVSU Distance · 2022–2025 · 67%</div>
+    </div>
+    <div class="timeline-item">
+      <h4>Diploma in Network Administration</h4>
+      <div class="timeline-meta">Jetking Infotrain · 2020–2022 · Grade A</div>
+      <p>MCSA, RHCSA, CCNA, CompTIA A+, Network+, Office 365</p>
+    </div>
+  </div>
+</div>
 
 <!-- WHY WORK WITH ME -->
 <div class="bio-section">
