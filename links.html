@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aman5z — Quick Access</title>
+<link rel="icon" href="https://raw.githubusercontent.com/aman5z/AD/main/Microsoft_Logo_512px.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#0a1628;
+  --navy2:#0f1f3d;
+  --navy3:#1a3a80;
+  --blue:#0078d7;
+  --blue2:#2090f0;
+  --blue-glow:rgba(0,120,215,.35);
+  --white:#e8edf5;
+  --sub:#8899bb;
+  --bdr:rgba(255,255,255,.07);
+  --card:rgba(10,22,40,.7);
+}
+
+html,body{height:100%;overflow-x:hidden}
+
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  min-height:100vh;
+  position:relative;
+}
+
+/* ── BACKGROUND ── */
+.bg-grid{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,120,215,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,120,215,.04) 1px, transparent 1px);
+  background-size:44px 44px;
+  z-index:0;
+  pointer-events:none;
+}
+.bg-glow{
+  position:fixed;
+  width:700px;height:700px;
+  background:radial-gradient(circle, rgba(0,120,215,.12) 0%, transparent 70%);
+  top:-200px;right:-200px;
+  pointer-events:none;z-index:0;
+  animation:drift 12s ease-in-out infinite alternate;
+}
+.bg-glow2{
+  position:fixed;
+  width:500px;height:500px;
+  background:radial-gradient(circle, rgba(26,58,128,.18) 0%, transparent 70%);
+  bottom:-150px;left:-100px;
+  pointer-events:none;z-index:0;
+  animation:drift2 15s ease-in-out infinite alternate;
+}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(-60px,80px)}}
+@keyframes drift2{0%{transform:translate(0,0)}100%{transform:translate(80px,-60px)}}
+
+/* ── NOISE TEXTURE ── */
+body::after{
+  content:"";position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.6;
+}
+
+/* ── WRAPPER ── */
+.wrapper{
+  position:relative;z-index:1;
+  max-width:900px;margin:0 auto;
+  padding:48px 24px 60px;
+}
+
+/* ── HEADER ── */
+.header{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:56px;
+  animation:fadeUp .6s ease both;
+}
+.header-logo{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,var(--navy3),var(--blue));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  box-shadow:0 0 20px var(--blue-glow);
+  flex-shrink:0;
+}
+.header-text h1{
+  font-size:26px;font-weight:800;
+  letter-spacing:-.5px;
+  background:linear-gradient(135deg,#e8edf5,#7aadee);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:4px;
+}
+.header-text p{
+  font-size:11px;font-weight:400;color:var(--sub);
+  letter-spacing:.8px;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+}
+.header-pill{
+  margin-left:auto;
+  display:flex;align-items:center;gap:6px;
+  background:rgba(0,120,215,.12);
+  border:1px solid rgba(0,120,215,.25);
+  padding:5px 12px;border-radius:20px;
+  font-size:10px;color:var(--blue2);
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.5px;
+}
+.header-pill::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--blue2);box-shadow:0 0 8px var(--blue2);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── SECTION LABEL ── */
+.section-label{
+  font-size:9px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--sub);
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-label::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg,var(--bdr),transparent);
+}
+
+/* ── GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:12px;
+  margin-bottom:36px;
+}
+
+/* ── CARD ── */
+.card{
+  background:var(--card);
+  border:1px solid var(--bdr);
+  border-radius:10px;
+  padding:20px;
+  cursor:pointer;
+  text-decoration:none;
+  display:flex;align-items:center;gap:14px;
+  position:relative;overflow:hidden;
+  transition:border-color .2s, transform .18s, box-shadow .2s;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,120,215,.07),transparent 60%);
+  opacity:0;transition:opacity .2s;
+}
+.card:hover{
+  border-color:rgba(0,120,215,.45);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(0,120,215,.15),0 0 0 1px rgba(0,120,215,.15);
+}
+.card:hover::before{opacity:1}
+.card:active{transform:translateY(0)}
+
+/* accent line top */
+.card::after{
+  content:"";
+  position:absolute;top:0;left:20px;right:20px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+}
+
+.card-ico{
+  width:44px;height:44px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--bdr);
+  transition:transform .2s;
+}
+.card:hover .card-ico{transform:scale(1.08)}
+
+.card-info{flex:1;min-width:0}
+.card-title{
+  font-size:13px;font-weight:700;color:var(--white);
+  margin-bottom:3px;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.card-desc{
+  font-size:10px;color:var(--sub);
+  font-family:'JetBrains Mono',monospace;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.card-arrow{
+  font-size:14px;color:rgba(255,255,255,.15);
+  transition:color .2s, transform .2s;flex-shrink:0;
+}
+.card:hover .card-arrow{color:var(--blue2);transform:translateX(3px)}
+
+/* ── TAG COLORS ── */
+.tag-blue .card-ico{background:rgba(0,120,215,.15);border-color:rgba(0,120,215,.25)}
+.tag-green .card-ico{background:rgba(22,163,74,.12);border-color:rgba(22,163,74,.25)}
+.tag-red .card-ico{background:rgba(238,49,36,.12);border-color:rgba(238,49,36,.25)}
+.tag-amber .card-ico{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.25)}
+.tag-teal .card-ico{background:rgba(8,145,178,.12);border-color:rgba(8,145,178,.25)}
+.tag-purple .card-ico{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.25)}
+.tag-indigo .card-ico{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.25)}
+
+/* ── FEATURED CARD (full width) ── */
+.card-wide{grid-column:1/-1}
+.card-wide .card-ico{width:52px;height:52px;font-size:28px}
+.card-wide .card-title{font-size:15px}
+.card-wide .card-desc{font-size:11px}
+
+/* ── FOOTER ── */
+.footer{
+  text-align:center;
+  color:var(--sub);
+  font-size:10px;
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.5px;
+  padding-top:12px;
+  border-top:1px solid var(--bdr);
+  animation:fadeUp .6s .6s ease both;
+  opacity:0;
+  animation-fill-mode:both;
+}
+.footer a{color:var(--blue2);text-decoration:none}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.card{opacity:0;animation:fadeUp .5s ease both}
+.card:nth-child(1){animation-delay:.08s}
+.card:nth-child(2){animation-delay:.13s}
+.card:nth-child(3){animation-delay:.18s}
+.card:nth-child(4){animation-delay:.23s}
+.card:nth-child(5){animation-delay:.28s}
+.card:nth-child(6){animation-delay:.33s}
+.card:nth-child(7){animation-delay:.38s}
+.section-label{opacity:0;animation:fadeUp .5s .05s ease both}
+
+/* ── SEARCH BAR ── */
+.search-wrap{
+  position:relative;margin-bottom:32px;
+  animation:fadeUp .5s .04s ease both;opacity:0;
+}
+.search-wrap input{
+  width:100%;padding:11px 16px 11px 40px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--bdr);border-radius:8px;
+  color:var(--white);font-family:'Syne',sans-serif;font-size:13px;
+  outline:none;transition:border-color .2s, background .2s;
+}
+.search-wrap input::placeholder{color:var(--sub)}
+.search-wrap input:focus{
+  border-color:rgba(0,120,215,.45);
+  background:rgba(0,120,215,.06);
+}
+.search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-size:14px;color:var(--sub);pointer-events:none;
+}
+.search-count{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .wrapper{padding:28px 16px 40px}
+  .header{margin-bottom:36px}
+  .header-pill{display:none}
+  .grid{grid-template-columns:1fr}
+  .card-wide{grid-column:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header" style="animation:fadeUp .6s ease both">
+    <div class="header-logo">🏢</div>
+    <div class="header-text">
+      <h1>aman5z</h1>
+      <p>Quick Access — aman5z.in</p>
+    </div>
+    <div class="header-pill">● Online</div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search tools..." oninput="filterCards()">
+    <span class="search-count" id="searchCount"></span>
+  </div>
+
+  <!-- ADMIN SECTION -->
+  <div class="section-label" id="sec-admin">Administration</div>
+  <div class="grid" id="grid-admin">
+
+    <a class="card card-wide tag-blue" href="https://aman5z.github.io/AD/users.html" target="_blank"
+       data-name="Active Directory Console AD Users Computers">
+      <div class="card-ico">🏢</div>
+      <div class="card-info">
+        <div class="card-title">Active Directory Console</div>
+        <div class="card-desc">aman5z.github.io/AD/users.html</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- NETWORK SECTION -->
+  <div class="section-label" id="sec-network">Network Simulators</div>
+  <div class="grid" id="grid-network">
+
+    <a class="card tag-red" href="https://aman5z.github.io/AD/fortigate" target="_blank"
+       data-name="FortiGate Firewall Simulator Network Security">
+      <div class="card-ico">🔥</div>
+      <div class="card-info">
+        <div class="card-title">FortiGate Firewall</div>
+        <div class="card-desc">aman5z.github.io/AD/fortigate</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card tag-teal" href="https://aman5z.github.io/AD/cisco" target="_blank"
+       data-name="Cisco IOS Terminal Router Simulator CLI">
+      <div class="card-ico">🔧</div>
+      <div class="card-info">
+        <div class="card-title">Cisco IOS Terminal</div>
+        <div class="card-desc">aman5z.github.io/AD/cisco</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- TOOLS SECTION -->
+  <div class="section-label" id="sec-tools">Tools & Systems</div>
+  <div class="grid" id="grid-tools">
+
+    <a class="card tag-indigo" href="https://aman5z.github.io/IT-Tools/IT-Tools.html" target="_blank"
+       data-name="IT Tools Utilities QR Barcode PDF Subnet">
+      <div class="card-ico">🧰</div>
+      <div class="card-info">
+        <div class="card-title">IT Tools</div>
+        <div class="card-desc">aman5z.github.io/IT-Tools</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card tag-amber" href="https://aman5z.github.io/IT-Ticketing/it-tkt.html" target="_blank"
+       data-name="IT Ticketing System Helpdesk Tickets">
+      <div class="card-ico">🎫</div>
+      <div class="card-info">
+        <div class="card-title">IT Ticketing System</div>
+        <div class="card-desc">aman5z.github.io/IT-Ticketing</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card tag-green" href="https://aman5z.github.io/Token_System/TokenDisplay.html" target="_blank"
+       data-name="Token Display Queue TV Screen">
+      <div class="card-ico">📺</div>
+      <div class="card-info">
+        <div class="card-title">Token Display</div>
+        <div class="card-desc">aman5z.github.io/Token_System</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card tag-purple" href="https://aman5z.github.io/Token_System/TokenCounterSystem.html" target="_blank"
+       data-name="Token Counter System Queue Management">
+      <div class="card-ico">🔢</div>
+      <div class="card-info">
+        <div class="card-title">Token Counter System</div>
+        <div class="card-desc">aman5z.github.io/Token_System</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    aman5z.in &nbsp;·&nbsp; <a href="https://aman5z.github.io/AD/users.html" target="_blank">AD Console</a>
+    &nbsp;·&nbsp; Built with ❤️
+  </div>
+
+</div>
+
+<script>
+const allCards = [...document.querySelectorAll('.card')];
+
+function filterCards(){
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  let vis = 0;
+  allCards.forEach(card => {
+    const name = (card.dataset.name || '').toLowerCase();
+    const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
+    const show = !q || name.includes(q) || title.includes(q);
+    card.style.display = show ? '' : 'none';
+    if(show) vis++;
+  });
+  const countEl = document.getElementById('searchCount');
+  countEl.textContent = q ? vis + ' result' + (vis !== 1 ? 's' : '') : '';
+
+  // Hide/show section labels based on visible children
+  document.querySelectorAll('.grid').forEach(grid => {
+    const id = grid.id.replace('grid-', 'sec-');
+    const secEl = document.getElementById(id);
+    const hasVisible = [...grid.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+    if(secEl) secEl.style.display = hasVisible ? '' : 'none';
+    grid.style.display = hasVisible ? '' : 'none';
+  });
+}
+
+// Keyboard shortcut: / to focus search
+document.addEventListener('keydown', e => {
+  if(e.key === '/' && document.activeElement.tagName !== 'INPUT'){
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+  if(e.key === 'Escape'){
+    document.getElementById('searchInput').value = '';
+    filterCards();
+    document.getElementById('searchInput').blur();
+  }
+});
+</script>
+</body>
+</html>
