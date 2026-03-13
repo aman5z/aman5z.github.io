@@ -1277,12 +1277,12 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
     <span class="section-index">01</span>
     <div>
       <span class="section-tag tag-web">Web Apps &amp; Software</span>
+
       <div class="section-title">Browser-Based IT Tools &amp; Dashboards</div>
       <p class="section-desc">Full-featured web apps built with Vanilla JS and Google Apps Script — enterprise-style admin consoles, network monitoring dashboards, and IT utility suites.</p>
     </div>
   </div>
   <div class="projects-grid">
-
     <div class="project-card">
       <div class="card-header">
         <div>
@@ -1293,6 +1293,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
         <span class="card-badge badge-freelance">Live Project</span>
       </div>
       <div class="card-body">
+
         <p>A fully functional browser-based IT administration dashboard inspired by Windows Active Directory Users and Computers. Single-page HTML application with a Windows-style UI — title bar, menu bar, toolbar, tabbed navigation, sidebar, and status bar — all running client-side with a Google Apps Script + Sheets backend.</p>
         <div class="sub-items">
           <div class="sub-item"><h4>User &amp; Access Management</h4><p>Role-based access control (Admin, Technician, User) with granular per-user permissions. Full user management: create, edit, enable/disable, delete, reset passwords.</p></div>
@@ -1319,13 +1320,102 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
       </div>
     </div>
 
+<!-- ZKTeco Attendance Dashboard -->
+    <div class="project-card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">ZKTeco Attendance Management Dashboard</div>
+          <div class="card-subtitle">Full-stack Python + Flask dashboard for biometric attendance tracking across 4 devices</div>
+          <div class="card-links"><a href="https://github.com/aman5z/zkteco" target="_blank" class="card-link">GitHub</a></div>
+        </div>
+        <span class="card-badge badge-freelance">Live Project</span>
+      </div>
+      <div class="card-body">
+        <p>A complete attendance management system built in Python, replacing the legacy Middle East Attendance software. Connects live to 4 ZKTeco biometric devices (G3 + iFace950) over LAN using the ZK protocol, cross-references against a .mdb database, and generates department-filtered absent/present reports. Features a dark-themed web dashboard with PWA support for mobile access.</p>
+ 
+        <div class="sub-items" style="margin-top:16px;">
+          <div class="sub-item">
+            <h4>Live Device Integration</h4>
+            <p>Pulls real-time punch data from 4 ZKTeco devices simultaneously using pyzk over port 4370. Per-device status monitoring with timeout detection (ping OK vs attendance fetch failure).</p>
+          </div>
+          <div class="sub-item">
+            <h4>Smart Absent Reporting</h4>
+            <p>Filters active employees (ATT=1) from .mdb database, cross-references live punches, and generates department-wise absent lists for Admin, Teaching, Support, Cleaning Staff, and Transport.</p>
+          </div>
+          <div class="sub-item">
+            <h4>Interactive Web Dashboard</h4>
+            <p>Flask-based single-page app with Overview, Today's Report, History, and Device Management tabs. Collapsible day-by-day history, searchable tables, and department bar charts.</p>
+          </div>
+          <div class="sub-item">
+            <h4>Excel Export</h4>
+            <p>One-click export of absent reports to formatted .xlsx with department grouping, alternating row colors, and summary sheet — for both today and any custom date range.</p>
+          </div>
+          <div class="sub-item">
+            <h4>PWA + Mobile Ready</h4>
+            <p>Installable as a home screen app on Android via PWA. Service worker caches the UI; API calls always fetch live data. Fully mobile-responsive layout.</p>
+          </div>
+          <div class="sub-item">
+            <h4>Device Management</h4>
+            <p>Per-device user count, serial number, firmware info, and punch log viewer for any date via modal popup.</p>
+          </div>
+        </div>
+ 
+        <div class="gallery">
+          <img src="https://github.com/user-attachments/assets/bdef4f92-0485-4df9-8b10-8a35ac7000ba" alt="ZKTeco Dashboard - Overview">
+          <img src="https://github.com/user-attachments/assets/7d449c19-b1a0-42b2-8008-9548b2bf08ce" alt="ZKTeco Dashboard - Report">
+          <img src="https://github.com/user-attachments/assets/2ad1aca7-d2ca-45d7-bba4-4fe205032314" alt="ZKTeco Dashboard - Devices">
+        </div>
+ 
+        <div class="tech-stack">
+          <span class="tech">Python</span><span class="tech">Flask</span><span class="tech">pyzk</span><span class="tech">pyodbc</span><span class="tech">pandas</span><span class="tech">openpyxl</span><span class="tech">Microsoft Access (.mdb)</span><span class="tech">ZK Protocol</span><span class="tech">PWA</span><span class="tech">Service Worker</span><span class="tech">Vanilla JS</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- School Circular Email Automation -->
+    <div class="project-card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">School Circular Email Automation System</div>
+          <div class="card-subtitle">Bulk email system for distributing circulars to 5,500+ parents via Gmail</div>
+          <div class="card-links"><a href="https://github.com/aman5z/mail_batcher" target="_blank" class="card-link">GitHub</a></div>
+        </div>
+        <span class="card-badge badge-freelance">Live Project</span>
+      </div>
+      <div class="card-body">
+        <p>An end-to-end circular distribution system built for Gulf Asian English School. Extracts and deduplicates parent emails from Excel, splits into 500-email BCC batches respecting Gmail limits, and distributes across 6 Gmail accounts automatically. Includes a browser-based batch manager and a desktop GUI sender.</p>
+ 
+        <ul class="feature-list">
+          <li>Extracts &amp; deduplicates emails from any Excel file</li>
+          <li>Splits into 500-per-batch columns with comma-separated copy buttons</li>
+          <li>HTML batch manager — copy per batch directly into Gmail BCC</li>
+          <li>Python desktop GUI with class filter, PDF attachment, live send log</li>
+          <li>Converts to standalone <code>.exe</code> — no Python required on other machines</li>
+          <li>Supports 6 Gmail accounts in rotation (2,000 emails/account/day)</li>
+        </ul>
+ 
+        <div class="gallery">
+          <img src="https://github.com/user-attachments/assets/a61717bf-522b-4093-a5d6-048e937d671a" alt="Circular Automation - GUI">
+          <img src="https://github.com/user-attachments/assets/443a6c95-b2cd-4864-b245-055fa496bd0b" alt="Circular Automation - Batch Manager">
+          <img src="https://github.com/user-attachments/assets/c62b8241-23dc-402c-b333-8e653c6af98f" alt="Circular Automation - Email Split">
+          <img src="https://github.com/user-attachments/assets/5504164c-951b-4fa6-86e9-30a5b1a91297" alt="Circular Automation - Send Log">
+          <img src="https://github.com/user-attachments/assets/455666dd-017b-4256-bf9d-e3e7c777aa42" alt="Circular Automation - Dashboard">
+          <img src="https://github.com/user-attachments/assets/67354050-0905-4265-87fd-a22ecbbe2d91" alt="Circular Automation - Overview">
+        </div>
+ 
+        <div class="tech-stack">
+          <span class="tech">Python</span><span class="tech">Tkinter</span><span class="tech">openpyxl</span><span class="tech">smtplib</span><span class="tech">SMTP / Gmail</span><span class="tech">PyInstaller</span><span class="tech">Vanilla JS</span><span class="tech">HTML5 / CSS3</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- IT Helpdesk Ticket Management -->
     <div class="project-card">
       <div class="card-header">
         <div>
           <div class="card-title">IT Helpdesk Ticket Management System</div>
           <div class="card-subtitle">Web-based ticketing system with role-based access and SLA monitoring</div>
           <div class="card-links"><a href="https://aman5z.github.io/IT-Ticketing/it-tkt.html" target="_blank" class="card-link">Live Demo</a> Username: demo Password: demo </div>
-
         </div>
         <span class="card-badge badge-diy">Open Source</span>
       </div>
@@ -1346,7 +1436,6 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
         </div>
       </div>
     </div>
-
     <div class="project-card">
       <div class="card-header">
         <div>
