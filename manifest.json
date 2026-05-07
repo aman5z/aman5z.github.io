@@ -1,0 +1,19 @@
+{
+  "name": "IT Tools",
+  "short_name": "IT Tools",
+  "description": "A collection of IT utilities — QR codes, subnet calculator, PDF tools, and more",
+  "start_url": "/tools.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080c14",
+  "theme_color": "#080c14",
+  "icons": [
+    {
+      "src": "favcon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

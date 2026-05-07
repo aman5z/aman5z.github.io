@@ -1,0 +1,19 @@
+{
+  "name": "aman5z — Quick Access",
+  "short_name": "aman5z",
+  "description": "Quick access launcher for aman5z tools and links",
+  "start_url": "/links.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "icons": [
+    {
+      "src": "favcon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
