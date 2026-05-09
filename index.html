@@ -1324,39 +1324,39 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
     <div class="project-card">
       <div class="card-header">
         <div>
-          
-
-<div class="card-title">ERP Console</div>
-          <div class="card-subtitle">Unified enterprise dashboard merging ZKTeco Biometric Attendance, IT Helpdesk, and Admin Console</div>
-          <div class="card-links"><a href="https://aman5z.in/erp" target="_blank" class="card-link">Live Demo</a> <span>(Click "🎮 Enter Demo Mode" on login)</span></div> 
+          <div class="card-title">ZKTeco Attendance System &amp; ERP Console</div>
+          <div class="card-subtitle">Full-stack biometric attendance solution — Python/Flask backend, real-time logger, and a unified web dashboard for HR, IT Helpdesk, and Admin operations</div>
+          <div class="card-links">
+            <a href="https://aman5z.github.io/ZKTeco/d" target="_blank" class="card-link">Live Demo</a>
+            <span>(Click "Demo" on login)</span>
+          </div>
         </div>
         <span class="card-badge badge-freelance">Live Project</span>
       </div>
       <div class="card-body">
-        <p>A highly customizable, high-performance single-page application built entirely with vanilla web technologies. It seamlessly connects a local ZKTeco Python/Flask server with a cloud-based Google Apps Script backend. It features full PWA capabilities, offline-caching for punch records, and an extensive integrated suite of IT utilities.</p>
+        <p>An end-to-end attendance management platform for ZKTeco biometric devices. The Python backend streams live punch events from multiple terminals into a local SQLite database, while the ERP Console — a high-performance single-page app built with vanilla web technologies — serves as the unified front end for HR, IT Helpdesk, and admin operations. Connects to a Google Apps Script cloud backend for ticketing and Drive integration. Runs on Linux, Windows, macOS, and Android (Termux).</p>
         <div class="sub-items">
-          <div class="sub-item"><h4>HR &amp; Attendance Management</h4><p>Real-time dashboard for present/absent stats, department attendance tracking, historical reporting, shift/grace-period scheduling, and offline-capable remote punching using IndexedDB.</p></div>
-          <div class="sub-item"><h4>ZKTeco Fleet Control</h4><p>Monitor online/offline status for biometric terminals. Execute remote actions directly from the browser: ping devices, sync clocks, reboot, and manage enrolled users across the network.</p></div>
-          <div class="sub-item"><h4>IT Helpdesk &amp; Services</h4><p>Complete ticketing system with priority levels and assignment workflows. Includes a dynamic token queue system for service counters and integrated Google Drive file management.</p></div>
-          <div class="sub-item"><h4>Collaboration Suite</h4><p>Built-in peer-to-peer internal messaging, color-coded private sticky notes, and a system-wide announcement board for administrative broadcasts.</p></div>
-          <div class="sub-item"><h4>Extensive IT Toolkit</h4><p>Client-side utilities including an Excel-based email batch manager, PDF manipulator (merge/split/compress/watermark), QR/Barcode generators, subnet calculators, live ping charts, and text diff checkers.</p></div>
-          <div class="sub-item"><h4>Admin &amp; Infrastructure</h4><p>Integrated Linode terminal shell via `ttyd`, raw SQLite database query execution, comprehensive audit logging, Role-Based Access Control (RBAC), and 10+ custom UI themes (including glassmorphism).</p></div>
+          <div class="sub-item"><h4>Real-Time Logger &amp; Sync</h4><p>Per-device threads with self-healing reconnect stream live punches to SQLite (WAL) and an external API with configurable batching. Bulk sync CLI supports date-range filtering; startup scripts auto-sync the last 30–60 days on boot.</p></div>
+          <div class="sub-item"><h4>HR &amp; Attendance Management</h4><p>Live present/absent dashboard with per-department stats, historical reports, employee calendar, monthly summaries, shift/grace-period config, holiday management, and offline-capable remote punching via IndexedDB.</p></div>
+          <div class="sub-item"><h4>ZKTeco Fleet Control</h4><p>Monitor online/offline status for all biometric terminals. Remote actions from the browser: ping, sync clock, reboot. Download enrolled users, fingerprint templates, and raw logs per device.</p></div>
+          <div class="sub-item"><h4>Notifications</h4><p>Telegram bot alerts for device status, per-punch events, and scheduled daily absent reports. Scheduled HTML + plain-text email reports via Gmail SMTP. All settings configurable from the Admin UI without restarting.</p></div>
+          <div class="sub-item"><h4>IT Helpdesk &amp; Collaboration</h4><p>Ticketing system with priority and assignment workflows, token queue for service counters, internal peer-to-peer messaging, notice board, sticky notes, WebRTC VoIP calling, and Google Drive integration via GAS.</p></div>
+          <div class="sub-item"><h4>Admin &amp; Infrastructure</h4><p>Raw SQLite query console, DB backup/restore, CSV/MDB bulk import, full audit log, RBAC user management, session manager, auto-sync scheduler, integrated Linode terminal via ttyd, and 13 UI themes including glassmorphism.</p></div>
         </div>
         <div class="gallery">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(1).png?raw=true" alt="ERP">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(2).png?raw=true" alt="ERP">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(3).png?raw=true" alt="ERP">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(4).png?raw=true" alt="ERP">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(5).png?raw=true" alt="ERP">
-<img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(6).png?raw=true" alt="ERP">
-
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(1).png?raw=true" alt="ERP">
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(2).png?raw=true" alt="ERP">
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(3).png?raw=true" alt="ERP">
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(4).png?raw=true" alt="ERP">
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(5).png?raw=true" alt="ERP">
+          <img src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(6).png?raw=true" alt="ERP">
         </div>
         <div class="tech-stack">
-          <span class="tech">Vanilla JS</span><span class="tech">HTML5 / CSS3</span><span class="tech">Python (Flask)</span><span class="tech">Google Apps Script</span><span class="tech">PWA / IndexedDB</span><span class="tech">SheetJS</span><span class="tech">PDF-lib</span><span class="tech">JsBarcode</span><span class="tech">Chart.js logic</span>
+          <span class="tech">Python 3 / Flask</span><span class="tech">pyzk</span><span class="tech">SQLite (WAL)</span><span class="tech">Vanilla JS</span><span class="tech">HTML5 / CSS3</span><span class="tech">PWA / IndexedDB</span><span class="tech">Google Apps Script</span><span class="tech">Telegram Bot API</span><span class="tech">Gmail SMTP</span><span class="tech">SheetJS</span><span class="tech">PDF-lib</span><span class="tech">Socket.IO</span><span class="tech">Docker</span><span class="tech">Termux</span>
         </div>
       </div>
     </div>
-
+  </div>
 
 
   </div>
