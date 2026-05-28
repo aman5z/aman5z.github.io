@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homelab Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111418;
+    --border: #1e2530;
+    --accent: #00ff88;
+    --accent2: #0088ff;
+    --accent3: #ff4466;
+    --text: #e0e8f0;
+    --muted: #4a5568;
+    --hover: #1a2030;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(0,255,136,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(0,136,255,0.04) 0%, transparent 50%);
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  header span {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .card:hover {
+    background: var(--hover);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0,255,136,0.08);
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .card-meta {
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  .card-url {
+    font-size: 0.68rem;
+    color: var(--accent2);
+    margin-top: 0.2rem;
+    word-break: break-all;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    margin-top: 0.3rem;
+    width: fit-content;
+  }
+
+  .badge-host { background: rgba(255,68,102,0.15); color: var(--accent3); border: 1px solid rgba(255,68,102,0.2); }
+  .badge-lxc  { background: rgba(0,255,136,0.1);  color: var(--accent);  border: 1px solid rgba(0,255,136,0.2); }
+  .badge-vm   { background: rgba(0,136,255,0.1);  color: var(--accent2); border: 1px solid rgba(0,136,255,0.2); }
+
+  .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 0.4rem;
+    animation: pulse 2s infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  footer {
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: 0.65rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>&#x25A0; HOMELAB</h1>
+  <span>192.168.0.0/24 &nbsp;|&nbsp; dell.proxmox</span>
+</header>
+
+<div class="section-label">&#x2F2F; Host — 192.168.0.10</div>
+<div class="grid">
+  <a class="card" href="https://192.168.0.10:8006" target="_blank">
+    <span class="badge badge-host">HOST</span>
+    <div class="card-name"><span class="dot"></span>Proxmox UI</div>
+    <div class="card-meta">Hypervisor Management</div>
+    <div class="card-url">192.168.0.10:8006</div>
+  </a>
+  <a class="card" href="http://192.168.0.10:19999" target="_blank">
+    <span class="badge badge-host">HOST</span>
+    <div class="card-name"><span class="dot"></span>Netdata</div>
+    <div class="card-meta">Real-time Monitoring</div>
+    <div class="card-url">192.168.0.10:19999</div>
+  </a>
+  <a class="card" href="http://192.168.0.10:10000" target="_blank">
+    <span class="badge badge-host">HOST</span>
+    <div class="card-name"><span class="dot"></span>Webmin</div>
+    <div class="card-meta">Server Admin Panel</div>
+    <div class="card-url">192.168.0.10:10000</div>
+  </a>
+</div>
+
+<div class="section-label">&#x2F2F; LXC Containers</div>
+<div class="grid">
+  <a class="card" href="http://192.168.0.161:5216" target="_blank">
+    <span class="badge badge-lxc">CT 100</span>
+    <div class="card-name"><span class="dot"></span>MySpeed</div>
+    <div class="card-meta">Internet Speed Tracker</div>
+    <div class="card-url">192.168.0.161:5216</div>
+  </a>
+  <a class="card" href="http://192.168.0.222" target="_blank">
+    <span class="badge badge-lxc">CT 101</span>
+    <div class="card-name"><span class="dot"></span>FreePBX</div>
+    <div class="card-meta">VoIP / PBX</div>
+    <div class="card-url">192.168.0.222:80</div>
+  </a>
+  <a class="card" href="http://192.168.0.53" target="_blank">
+    <span class="badge badge-lxc">CT 105</span>
+    <div class="card-name"><span class="dot"></span>CasaOS</div>
+    <div class="card-meta">Home Server OS</div>
+    <div class="card-url">192.168.0.53:80</div>
+  </a>
+  <a class="card" href="http://192.168.0.143/admin" target="_blank">
+    <span class="badge badge-lxc">CT 113</span>
+    <div class="card-name"><span class="dot"></span>Pi-hole</div>
+    <div class="card-meta">DNS Ad Blocker</div>
+    <div class="card-url">192.168.0.143/admin</div>
+  </a>
+  <a class="card" href="http://192.168.0.132:3001" target="_blank">
+    <span class="badge badge-lxc">CT 116</span>
+    <div class="card-name"><span class="dot"></span>Uptime Kuma</div>
+    <div class="card-meta">Uptime Monitor</div>
+    <div class="card-url">192.168.0.132:3001</div>
+  </a>
+  <a class="card" href="http://192.168.0.165:8080/guacamole" target="_blank">
+    <span class="badge badge-lxc">CT 117</span>
+    <div class="card-name"><span class="dot"></span>Guacamole</div>
+    <div class="card-meta">Remote Desktop Gateway</div>
+    <div class="card-url">192.168.0.165:8080</div>
+  </a>
+  <a class="card" href="http://192.168.0.158:3033" target="_blank">
+    <span class="badge badge-lxc">CT 119</span>
+    <div class="card-name"><span class="dot"></span>yt-dlp WebUI</div>
+    <div class="card-meta">Media Downloader</div>
+    <div class="card-url">192.168.0.158:3033</div>
+  </a>
+  <a class="card" href="http://192.168.0.156" target="_blank">
+    <span class="badge badge-lxc">CT 123</span>
+    <div class="card-name"><span class="dot"></span>PiAlert</div>
+    <div class="card-meta">Network Scanner</div>
+    <div class="card-url">192.168.0.156:80</div>
+  </a>
+</div>
+
+<footer>
+  dell &nbsp;|&nbsp; PVE 9.2.2 &nbsp;|&nbsp; NVMe 467G &nbsp;|&nbsp; SD 232G &nbsp;|&nbsp; Tailscale: 100.83.189.89
+</footer>
+
+</body>
+</html>
