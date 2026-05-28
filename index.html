@@ -1392,6 +1392,63 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 
 
 
+
+<!-- ZKTeco Telegram Bot -->
+<div class="project-card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">ZKTeco Attendance Telegram Bot</div>
+      <div class="card-subtitle">Telegram-only attendance management for ZKTeco devices + Middle East Attendance Software MDB — 40+ commands, no dashboard needed</div>
+      <div class="card-links">
+        <a href="https://github.com/aman5z/zk_tg_bot" target="_blank" class="card-link">GitHub</a>
+      </div>
+    </div>
+    <span class="card-badge badge-diy">Open Source</span>
+  </div>
+  <div class="card-body">
+    <p>A fully Telegram-native attendance system that connects directly to ZKTeco biometric devices (TCP/IP via pyzk) and reads the Middle East Attendance Software .mdb database. No web server, no Flask, no SQLite — every feature is a Telegram command. Supports 40+ commands across attendance queries, device management, reporting, and admin operations.</p>
+    <div class="sub-items">
+      <div class="sub-item"><h4>Attendance & Reporting</h4><p>Today's summary, absent/present/late/early lists, who-is-in detection, weekly/monthly trends, top absentees, department breakdowns, and custom date-range history. XLSX/PNG/PDF reports via scheduled or on-demand delivery.</p></div>
+      <div class="sub-item"><h4>Per-Employee Queries</h4><p>Search by name or badge, today's punch timeline, month-to-date report, and a full emoji calendar grid showing daily presence/absence at a glance.</p></div>
+      <div class="sub-item"><h4>Device Fleet Control</h4><p>Ping all devices, sync clocks, reboot remotely, push user records across the fleet, identify orphaned device users not in the MDB, and manage device config via inline Telegram keyboards.</p></div>
+      <div class="sub-item"><h4>Notifications & Email</h4><p>Per-punch live alerts, device online/offline change alerts, MDB stale detection, and daily scheduled absent reports. Optional Gmail SMTP delivery with HTML/plain/both formats — all configurable from Telegram without touching config files.</p></div>
+      <div class="sub-item"><h4>MDB Backup System</h4><p>Inline backup panel with Telegram download, email attachment, local directory copy, and recurring scheduled delivery. All settings managed via the bot UI.</p></div>
+      <div class="sub-item"><h4>Admin & Security</h4><p>Password-gated whitelist-only shell session, read-only SQL console, audit log, RBAC with per-user presence tracking, and a full inline admin panel. Lockout on repeated auth failures.</p></div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech">Python 3</span><span class="tech">python-telegram-bot v20+</span><span class="tech">pyzk</span><span class="tech">mdbtools</span><span class="tech">pandas</span><span class="tech">openpyxl</span><span class="tech">matplotlib</span><span class="tech">Gmail SMTP</span><span class="tech">asyncio</span><span class="tech">systemd</span>
+    </div>
+  </div>
+</div>
+
+<!-- Telegram Queue Management System -->
+<div class="project-card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">Telegram Queue Management System</div>
+      <div class="card-subtitle">Full token/queue system — Telegram admin bot + FastAPI web server + real-time TV display with TTS and live tracking</div>
+      <div class="card-links">
+        <a href="https://github.com/aman5z/tg_queue_mgmt" target="_blank" class="card-link">GitHub</a>
+      </div>
+    </div>
+    <span class="card-badge badge-diy">Open Source</span>
+  </div>
+  <div class="card-body">
+    <p>A complete queue and token management platform built for service counters — combines a Telegram admin bot with a FastAPI web server and SQLite backend. Real-time updates are pushed via Server-Sent Events (SSE) to a TV-ready display page with browser TTS read-aloud and audio beep on every token call.</p>
+    <div class="sub-items">
+      <div class="sub-item"><h4>TV Display Page</h4><p>Full-screen NOW SERVING board with per-counter status, live waiting list, clock, and automatic TTS announcement — "Token 42, please proceed to Counter 2" — triggered instantly via SSE when any admin calls the next token.</p></div>
+      <div class="sub-item"><h4>Customer Token Flow</h4><p>Customers scan a QR code or visit the /take page, enter their name and department, and receive a token number plus a /track link. The tracker auto-refreshes showing live queue position without any app install.</p></div>
+      <div class="sub-item"><h4>Telegram Admin Bot</h4><p>Inline keyboard controls for Next / Previous / Recall / Current / Waiting per counter. Full counter management: add, rename, remove, open, close. QR code generation, queue reset with confirmation, and staff user management.</p></div>
+      <div class="sub-item"><h4>Staff Web Dashboard</h4><p>Browser login for counter staff — manage their assigned counters without Telegram access. Session-cookie auth with optional HTTPS-only mode. Counter assignments configurable per staff user from the admin bot.</p></div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech">Python 3</span><span class="tech">python-telegram-bot v20+</span><span class="tech">FastAPI</span><span class="tech">SQLite / aiosqlite</span><span class="tech">SSE</span><span class="tech">Web Speech API</span><span class="tech">asyncio</span><span class="tech">Docker-ready</span>
+    </div>
+  </div>
+</div>
+
+
+
 </section>
 
 <!-- ── SECTION 02: CYBERSECURITY ── -->
