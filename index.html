@@ -1915,7 +1915,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
-<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt="" tabindex="0"></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt="Image preview" tabindex="0"></div>
 
 <script>
   // ── Theme Toggle ──
@@ -1982,11 +1982,6 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      if (document.activeElement === lbClose) lbImg.focus();
-      else lbClose.focus();
-    }
   });
 
   // ── Smooth scroll for cat-nav ──
