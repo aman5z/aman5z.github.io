@@ -1915,7 +1915,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
-<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt=""></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview" aria-describedby="lb-img"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt=""></div>
 
 <script>
   // ── Theme Toggle ──
@@ -1950,13 +1950,43 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 
   // ── Lightbox ──
   const lb = document.getElementById('lb');
+  const lbClose = document.getElementById('lb-close');
   const lbImg = document.getElementById('lb-img');
+  let lastLightboxTrigger = null;
+
+  function openLightbox(img) {
+    lastLightboxTrigger = img;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('open');
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    if (lastLightboxTrigger) lastLightboxTrigger.focus();
+  }
+
   document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); });
+    img.tabIndex = 0;
+    img.addEventListener('click', () => openLightbox(img));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    });
   });
-  document.getElementById('lb-close').addEventListener('click', () => lb.classList.remove('open'));
-  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      lbClose.focus();
+    }
+  });
 
   // ── Smooth scroll for cat-nav ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
