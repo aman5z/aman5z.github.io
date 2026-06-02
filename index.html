@@ -5,6 +5,8 @@
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/favcon.png" title="Aman Faizal Portfolio">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Aman Faizal — Certified Ethical Hacker, IT Infrastructure Administrator & IoT Automation Specialist. Portfolio of enterprise IT projects, cybersecurity tools, and smart home automation.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aman5z.in">
 <meta property="og:title" content="Aman Faizal — Portfolio">
 <meta property="og:description" content="Certified Ethical Hacker · IT Infrastructure Admin · IoT Automation Specialist">
 <meta property="og:type" content="website">
@@ -13,12 +15,14 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aman Faizal — Portfolio">
 <meta name="twitter:description" content="Certified Ethical Hacker · IT Infrastructure Admin · IoT Automation Specialist">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/favcon.png">
 <meta name="author" content="Aman Faizal">
 <meta name="keywords" content="Aman Faizal, IT Administrator, CEH, IoT, Cybersecurity, Portfolio, ESP8266, Proxmox, Network Engineer">
 <meta name="theme-color" content="#0c0e12" id="theme-color-meta">
 <title>Aman Faizal — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
 <style>
@@ -263,6 +267,7 @@ body {
   text-decoration: none;
   transition: opacity 0.3s;
 }
+.social-hidden { opacity: 0 !important; pointer-events: none !important; }
 #linkedin-btn { right: 320px; }
 #github-btn { right: 268px; }
 #youtube-btn { right: 216px; }
@@ -413,7 +418,8 @@ body {
 [data-theme="light"] .stat-card .number { font-family: 'Poppins', sans-serif; }
 
 [data-tooltip] { position: relative; }
-[data-tooltip]:hover::after {
+[data-tooltip]:hover::after,
+[data-tooltip]:focus::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: calc(100% + 8px);
@@ -689,6 +695,7 @@ body {
   margin-bottom: 5px;
 }
 [data-theme="light"] .card-title { font-family: 'Poppins', sans-serif; font-size: 15px; color: #003ee6; }
+.card-title-sm { font-size: 12px; margin-bottom: 10px; }
 .card-subtitle { font-size: 13px; color: var(--muted); }
 .card-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 .card-link {
@@ -1042,6 +1049,7 @@ body {
 .contact-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 .contact-btns .btn-a { background: var(--accent); color: var(--bg); }
 [data-theme="light"] .contact-btns .btn-a { background: #003ee6; color: #fff; }
+.contact-inner .contact-tagline { margin-top: 28px; font-style: italic; color: var(--muted); font-size: 13px; }
 
 /* ══════════════════════════════════════════
    FOOTER
@@ -1179,20 +1187,19 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 </a>
 
 <!-- Theme Toggle -->
-<button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+<button id="theme-toggle" aria-label="Toggle light/dark theme">
   <span class="toggle-icon" id="toggle-icon">☀️</span>
   <span id="toggle-label">Light Mode</span>
 </button>
 
-
-
+<main id="main-content">
 <!-- ══ HERO ══ -->
-<div class="hero" id="main-content">
+<div class="hero">
   <div class="hero-inner">
 
 <div class="hero-label">// IT Professional — Portfolio</div>
     <h1>Aman Faizal</h1>
-    <div class="hero-subtitle"><span lang="ar">عمان فيصل</span> | <span lang="hi">अमन फैज़ल</span></div>
+    <div class="hero-subtitle"><span lang="ar">أمان فيصل</span> | <span lang="hi">अमन फैज़ल</span></div>
 
 
 
@@ -1213,6 +1220,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
       <a href="Aman_Faizal_CV.pdf" download="Aman_Faizal_CV.pdf" class="btn btn-a">
         ⬇ Download CV
       </a>
+      <a href="#webapps" class="btn btn-b">View My Work ↓</a>
     </div>
 
   </div>
@@ -1222,8 +1230,8 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat-card"><span class="number">4+</span><span class="label">Years Experience</span></div>
-    <div class="stat-card" data-tooltip="6,500+ Students&#10;500+ Staff Members"><span class="number">7,000+</span><span class="label">Users Supported</span></div>
-    <div class="stat-card" data-tooltip="• CEH (EC-Council)&#10;• Advanced Penetration Tester&#10;• Google IT Support Professional&#10;• RHCE &amp; AWS Solution Architect&#10;• Apple ATLAS (318 Courses)&#10;• Network Administration Diploma&#10;• CompTIA Security+&#10;• DevOps Fundamentals&#10;• And more..."><span class="number">15+</span><span class="label">Certifications</span></div>
+    <div class="stat-card" data-tooltip="6,500+ Students&#10;500+ Staff Members" tabindex="0"><span class="number">7,000+</span><span class="label">Users Supported</span></div>
+    <div class="stat-card" data-tooltip="• CEH (EC-Council)&#10;• Advanced Penetration Tester&#10;• Google IT Support Professional&#10;• RHCE &amp; AWS Solution Architect&#10;• Apple ATLAS (318 Courses)&#10;• Network Administration Diploma&#10;• CompTIA Security+&#10;• DevOps Fundamentals&#10;• And more..." tabindex="0"><span class="number">15+</span><span class="label">Certifications</span></div>
     <div class="stat-card"><span class="number">95%</span><span class="label">Issue Resolution Rate</span></div>
   </div>
 </div>
@@ -1550,7 +1558,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <div class="sub-item"><h4>Wi-Fi Duck (HID Injection)</h4><p>When plugged via USB, emulates a keyboard/mouse (HID device). Remote scripts are delivered over the ESP8266 hotspot, allowing keystroke injection undetected by most antivirus software.</p></div>
         </div>
         <div class="card-divider"></div>
-        <div class="card-title" style="font-size:12px; margin-bottom:10px;">Components</div>
+        <div class="card-title card-title-sm">Components</div>
         <div class="parts-list">
           <div class="part-item"><div class="part-dot"></div><div><span class="part-name">Pro Micro (ATmega32U4)</span><span class="part-desc">USB HID emulation (keyboard/mouse)</span></div></div>
           <div class="part-item"><div class="part-dot"></div><div><span class="part-name">D1 Mini (ESP8266)</span><span class="part-desc">Wi-Fi deauth attacks + hotspot</span></div></div>
@@ -1560,7 +1568,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <div class="part-item"><div class="part-dot"></div><div><span class="part-name">WS2811 RGB LED</span><span class="part-desc">Visual state indicator</span></div></div>
         </div>
         <div class="card-divider"></div>
-        <div class="card-title" style="font-size:12px; margin-bottom:10px;">Wiring</div>
+        <div class="card-title card-title-sm">Wiring</div>
         <div class="conn-table">
           <div class="conn-row"><span class="conn-key">SCL (3)</span><span>→ D1 (ESP8266)</span></div>
           <div class="conn-row"><span class="conn-key">SDA (2)</span><span>→ D2 (ESP8266)</span></div>
@@ -1610,7 +1618,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <div class="sub-item"><h4>Kitchen</h4><p>Water pump timer using 40A SSR + Arduino Nano. 3-button interface: 2-min, 7-min, and reset. Prevents tank overflow and saves energy. Housed in a standard 2-module electrical box.</p></div>
         </div>
         <div class="card-divider"></div>
-        <div class="card-title" style="font-size:12px; margin-bottom:8px;">Voice Automation Scenarios</div>
+        <div class="card-title card-title-sm">Voice Automation Scenarios</div>
         <div class="scenario-list">
           <div class="scenario"><span class="scenario-cmd">"Movie Time"</span><span class="scenario-desc">TV on → soundbar connects via HDMI ARC → LED strip on → main light off</span></div>
           <div class="scenario"><span class="scenario-cmd">"Movie Break"</span><span class="scenario-desc">Media paused via IR → Wiz bulb at 50% brightness</span></div>
@@ -1785,7 +1793,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
       <div class="card-body">
         <p>Designed and deployed a cost-effective enterprise-grade Wi-Fi network across two villa compounds with 35 rooms, supporting 110+ Wi-Fi users and 160+ peak concurrent users. All 16 routers repurposed from existing hardware, configured as APs with static IPs and non-overlapping channels. Achieved 200–230 Mb/s stable throughput.</p>
         <div class="card-divider"></div>
-        <div class="card-title" style="font-size:12px; margin-bottom:10px;">Network Hardware</div>
+        <div class="card-title card-title-sm">Network Hardware</div>
         <table class="network-table">
           <tr><th>Component</th><th>Role</th></tr>
           <tr><td>TP-Link Archer AX53 (AX3000)</td><td>Primary router — traffic management &amp; inter-compound link via CAT6</td></tr>
@@ -1795,7 +1803,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <tr><td>HP Laptop (Proxmox)</td><td>24/7 monitoring via Zabbix, Nagios, Ntopng — zero additional cost</td></tr>
         </table>
         <div class="card-divider"></div>
-        <div class="card-title" style="font-size:12px; margin-bottom:10px;">NOC Monitoring Dashboard</div>
+        <div class="card-title card-title-sm">NOC Monitoring Dashboard</div>
         <p>Custom homelab-style Network Operations Center web dashboard using Vanilla JS, hosted via Blogger layout override. Provides unified LAN/WAN health visibility with embedded monitoring tools, real-time clock, and a dark-mode admin UI.</p>
         <div class="sub-items">
           <div class="sub-item"><h4>WAN Monitoring</h4><p>Embedded Fast.com speed test, public uptime tracking, external network status monitoring.</p></div>
@@ -1894,28 +1902,33 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
       <a href="https://github.com/aman5z" class="btn btn-a" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="mailto:amanfaizal@outlook.com" class="btn btn-a">Email Me</a>
     </div>
-    <p style="margin-top:28px; font-style:italic; color:var(--muted); font-size:13px;">Turning curiosity into capability, one project at a time.</p>
+    <p class="contact-tagline">Turning curiosity into capability, one project at a time.</p>
   </div>
 </div>
+
+</main>
 
 <!-- ══ FOOTER ══ -->
 <footer>
   <span>// Aman Faizal — Portfolio</span>
-  <span>Copyright &#169; 2026 @aman5z.in</span>
+  <span>Copyright &#169; <span id="footer-year"></span> @aman5z.in</span>
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
-<div id="lb"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt=""></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt="Image preview"></div>
 
 <script>
   // ── Theme Toggle ──
   const html = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
   const toggleIcon = document.getElementById('toggle-icon');
   const toggleLabel = document.getElementById('toggle-label');
   const themeColorMeta = document.getElementById('theme-color-meta');
 
   const saved = localStorage.getItem('portfolio-theme') || 'dark';
   setTheme(saved);
+  themeToggle.addEventListener('click', toggleTheme);
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 
   function setTheme(t) {
     html.setAttribute('data-theme', t);
@@ -1937,13 +1950,40 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 
   // ── Lightbox ──
   const lb = document.getElementById('lb');
+  const lbClose = document.getElementById('lb-close');
   const lbImg = document.getElementById('lb-img');
+  let lastLightboxTrigger = null;
+
+  function openLightbox(img) {
+    lastLightboxTrigger = img;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('open');
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    if (lastLightboxTrigger) lastLightboxTrigger.focus();
+  }
+
   document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); });
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.addEventListener('click', () => openLightbox(img));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    });
   });
-  document.getElementById('lb-close').addEventListener('click', () => lb.classList.remove('open'));
-  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   // ── Smooth scroll for cat-nav ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1957,9 +1997,9 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
   const socialBtns = document.querySelectorAll('#github-btn, #linkedin-btn, #youtube-btn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
-      socialBtns.forEach(btn => { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; });
+      socialBtns.forEach(btn => btn.classList.add('social-hidden'));
     } else {
-      socialBtns.forEach(btn => { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; });
+      socialBtns.forEach(btn => btn.classList.remove('social-hidden'));
     }
   });
 
@@ -1992,6 +2032,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
     function sync() {
       const collapsed = card.classList.contains('collapsed');
       chevron.querySelector('.chev-lbl').textContent = collapsed ? 'expand' : 'collapse';
+      card.setAttribute('aria-expanded', String(!collapsed));
     }
 
     // Start collapsed
