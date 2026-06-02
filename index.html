@@ -1915,7 +1915,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
-<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt="Image preview" tabindex="0"></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button id="lb-close" aria-label="Close image lightbox">✕</button><img id="lb-img" src="" alt="Image preview"></div>
 
 <script>
   // ── Theme Toggle ──
@@ -1969,6 +1969,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 
   document.querySelectorAll('.gallery img').forEach(img => {
     img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
     img.addEventListener('click', () => openLightbox(img));
     img.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
