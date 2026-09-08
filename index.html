@@ -1847,6 +1847,31 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
         </div>
       </div>
     </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Homelab Server Monitor — Proxmox, LXC &amp; Docker Dashboard</div>
+          <div class="card-subtitle">Custom framebuffer dashboard for Raspberry Pi 5 with MHS 3.5&quot; touchscreen</div>
+        </div>
+        <span class="card-badge badge-diy">Self-Hosted</span>
+      </div>
+      <div class="card-body">
+        <p>A custom-built display dashboard for a Raspberry Pi 5 with an MHS 3.5&quot; touchscreen, rendering directly to the framebuffer (<code>/dev/fb0</code>). Provides real-time monitoring of Proxmox VE backups, remote Linux/Windows devices, and network health, fully configurable from a browser-based web UI.</p>
+        <div class="sub-items">
+          <div class="sub-item"><h4>Multi-Screen Monitoring</h4><p>Clock/weather, system stats, network info, remote device CPU/RAM/disk mini-bars, ping latency sparklines, aggregated alerts, Uptime Kuma monitor list, firewall (pfSense/OPNsense) status, Pi-hole stats, habit tracker, countdowns, and a local photo slideshow.</p></div>
+          <div class="sub-item"><h4>Proxmox &amp; Remote Agents</h4><p>Pulls Proxmox VE backup task history via the REST API and surfaces failures as alerts; lightweight Linux and Windows agent scripts report device stats to the dashboard over a simple JSON API.</p></div>
+          <div class="sub-item"><h4>Web Configuration UI</h4><p>A local web server for configuring theme, fonts, alignment, screen order/visibility, alert thresholds, and integrations entirely from a browser — no code editing required, with login-protected access.</p></div>
+          <div class="sub-item"><h4>Extras</h4><p>ARP watch and port-scan reminders for lightweight LAN security monitoring, a server-side notification inbox for companion apps, and save/load config snapshot profiles.</p></div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech">Python</span><span class="tech">Raspberry Pi 5</span><span class="tech">Proxmox VE API</span><span class="tech">Framebuffer</span><span class="tech">Uptime Kuma</span><span class="tech">Pi-hole</span><span class="tech">systemd</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/aman5z/Homelab-Server-Monitor-Proxmox-LXC-Docker-Dashboard" target="_blank" rel="noopener" class="card-link">GitHub Repo</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
