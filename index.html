@@ -268,11 +268,9 @@ body {
   transition: opacity 0.3s;
 }
 .social-hidden { opacity: 0 !important; pointer-events: none !important; }
-#tools-btn { right: 372px; }
 #linkedin-btn { right: 320px; }
 #github-btn { right: 268px; }
 #youtube-btn { right: 216px; }
-#tools-btn img { width: 20px; height: 20px; border-radius: 4px; object-fit: contain; }
 
 /* ══════════════════════════════════════════
    HERO
@@ -1180,7 +1178,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 }
 
 @media (max-width: 480px) {
-  #tools-btn, #linkedin-btn, #github-btn, #youtube-btn { display: none; }
+  #linkedin-btn, #github-btn, #youtube-btn { display: none; }
   #theme-toggle { right: 12px; top: 12px; }
 }
 
@@ -1190,11 +1188,6 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ══ THEME TOGGLE ══ -->
-<!-- Tools -->
-<a id="tools-btn" class="social-btn" href="https://aman5z.in/tools" target="_blank" rel="noopener noreferrer" aria-label="Visit IT Tools">
-  <img src="https://www.google.com/s2/favicons?sz=64&domain_url=https://aman5z.in/tools" alt="" loading="lazy">
-</a>
-
 <!-- LinkedIn -->
 <a id="linkedin-btn" class="social-btn" href="https://www.linkedin.com/in/aman5z" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
   <svg height="20" viewBox="0 0 24 24" width="20" fill="var(--toggle-c)">
@@ -1226,7 +1219,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <!-- ══ HERO ══ -->
 <div class="hero">
   <div class="hero-inner">
-    <img class="hero-photo" src="https://aman5z.github.io/pic.png" alt="Aman Faizal">
+    <img class="hero-photo" src="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/pic.png" alt="Aman Faizal">
     <div class="hero-copy">
       <div class="hero-label">// IT Professional — Portfolio</div>
       <h1>Aman Faizal</h1>
@@ -2060,7 +2053,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
   });
 
   // ── Hide/show social buttons on scroll ──
-  const socialBtns = document.querySelectorAll('#tools-btn, #github-btn, #linkedin-btn, #youtube-btn');
+  const socialBtns = document.querySelectorAll('#github-btn, #linkedin-btn, #youtube-btn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
       socialBtns.forEach(btn => btn.classList.add('social-hidden'));
