@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/favcon.png" title="Aman Faizal Portfolio">
+<link rel="icon" type="image/png" href="https://aman5z.github.io/favcon.png" title="Aman Faizal Portfolio">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Aman Faizal — Certified Ethical Hacker, IT Infrastructure Administrator & IoT Automation Specialist. Portfolio of enterprise IT projects, cybersecurity tools, and smart home automation.">
 <meta name="robots" content="index, follow">
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Certified Ethical Hacker · IT Infrastructure Admin · IoT Automation Specialist">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aman5z.in">
-<meta property="og:image" content="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/favcon.png">
+<meta property="og:image" content="https://aman5z.github.io/favcon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aman Faizal — Portfolio">
 <meta name="twitter:description" content="Certified Ethical Hacker · IT Infrastructure Admin · IoT Automation Specialist">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/favcon.png">
+<meta name="twitter:image" content="https://aman5z.github.io/favcon.png">
 <meta name="author" content="Aman Faizal">
 <meta name="keywords" content="Aman Faizal, IT Administrator, CEH, IoT, Cybersecurity, Portfolio, ESP8266, Proxmox, Network Engineer">
 <meta name="theme-color" content="#0c0e12" id="theme-color-meta">
@@ -268,9 +268,11 @@ body {
   transition: opacity 0.3s;
 }
 .social-hidden { opacity: 0 !important; pointer-events: none !important; }
+#tools-btn { right: 372px; }
 #linkedin-btn { right: 320px; }
 #github-btn { right: 268px; }
 #youtube-btn { right: 216px; }
+#tools-btn img { width: 20px; height: 20px; border-radius: 4px; object-fit: contain; }
 
 /* ══════════════════════════════════════════
    HERO
@@ -1178,7 +1180,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 }
 
 @media (max-width: 480px) {
-  #linkedin-btn, #github-btn, #youtube-btn { display: none; }
+  #tools-btn, #linkedin-btn, #github-btn, #youtube-btn { display: none; }
   #theme-toggle { right: 12px; top: 12px; }
 }
 
@@ -1188,6 +1190,11 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ══ THEME TOGGLE ══ -->
+<!-- Tools -->
+<a id="tools-btn" class="social-btn" href="https://aman5z.in/tools" target="_blank" rel="noopener noreferrer" aria-label="Visit IT Tools">
+  <img src="https://www.google.com/s2/favicons?sz=64&domain_url=https://aman5z.in/tools" alt="" loading="lazy">
+</a>
+
 <!-- LinkedIn -->
 <a id="linkedin-btn" class="social-btn" href="https://www.linkedin.com/in/aman5z" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
   <svg height="20" viewBox="0 0 24 24" width="20" fill="var(--toggle-c)">
@@ -1219,7 +1226,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <!-- ══ HERO ══ -->
 <div class="hero">
   <div class="hero-inner">
-    <img class="hero-photo" src="https://raw.githubusercontent.com/aman5z/aman5z.github.io/main/pic.png" alt="Aman Faizal">
+    <img class="hero-photo" src="https://aman5z.github.io/pic.png" alt="Aman Faizal">
     <div class="hero-copy">
       <div class="hero-label">// IT Professional — Portfolio</div>
       <h1>Aman Faizal</h1>
@@ -1445,12 +1452,12 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <div class="sub-item"><h4>Admin &amp; Infrastructure</h4><p>Raw SQLite query console, DB backup/restore, CSV/MDB bulk import, full audit log, RBAC user management, session manager, auto-sync scheduler, integrated Linode terminal via ttyd, and 13 UI themes including glassmorphism.</p></div>
         </div>
         <div class="gallery">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(1).png?raw=true" alt="ERP Console login dashboard screenshot">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(2).png?raw=true" alt="ERP attendance analytics dashboard screenshot">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(3).png?raw=true" alt="ERP employee attendance report view">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(4).png?raw=true" alt="ERP helpdesk ticket board">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(5).png?raw=true" alt="ERP admin configuration panel">
-          <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/ERP%20(6).png?raw=true" alt="ERP live attendance monitoring screen">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(1).png" alt="ERP Console login dashboard screenshot">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(2).png" alt="ERP attendance analytics dashboard screenshot">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(3).png" alt="ERP employee attendance report view">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(4).png" alt="ERP helpdesk ticket board">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(5).png" alt="ERP admin configuration panel">
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/ERP%20(6).png" alt="ERP live attendance monitoring screen">
         </div>
         <div class="tech-stack">
           <span class="tech">Python 3 / Flask</span><span class="tech">pyzk</span><span class="tech">SQLite (WAL)</span><span class="tech">Vanilla JS</span><span class="tech">HTML5 / CSS3</span><span class="tech">PWA / IndexedDB</span><span class="tech">Google Apps Script</span><span class="tech">Telegram Bot API</span><span class="tech">Gmail SMTP</span><span class="tech">SheetJS</span><span class="tech">PDF-lib</span><span class="tech">Socket.IO</span><span class="tech">Docker</span><span class="tech">Termux</span>
@@ -1480,9 +1487,9 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
           <div class="sub-item"><h4>Monitoring &amp; Files</h4><p>Ping monitor with latency chart, real-time console output, Google Drive upload with QR sharing, client-side PDF editing.</p></div>
         </div>
         <div class="gallery">
-           <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/tools%20(1).png?raw=true" alt="IT Tools Dashboard main interface">
-           <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/tools%20(2).png?raw=true" alt="IT Tools networking utilities panel">
-           <img loading="lazy" src="https://github.com/aman5z/aman5z/blob/main/screenshots/tools%20(3).png?raw=true" alt="IT Tools security and converter utilities">
+           <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/tools%20(1).png" alt="IT Tools Dashboard main interface">
+           <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/tools%20(2).png" alt="IT Tools networking utilities panel">
+           <img loading="lazy" src="https://cdn.jsdelivr.net/gh/aman5z/aman5z@main/screenshots/tools%20(3).png" alt="IT Tools security and converter utilities">
        </div>
         <div class="tech-stack">
           <span class="tech">Vanilla JS</span><span class="tech">PDF-Lib</span><span class="tech">JsBarcode</span><span class="tech">QRCode.js</span><span class="tech">Google Apps Script</span><span class="tech">Battery API</span><span class="tech">Clipboard API</span>
@@ -2053,7 +2060,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
   });
 
   // ── Hide/show social buttons on scroll ──
-  const socialBtns = document.querySelectorAll('#github-btn, #linkedin-btn, #youtube-btn');
+  const socialBtns = document.querySelectorAll('#tools-btn, #github-btn, #linkedin-btn, #youtube-btn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
       socialBtns.forEach(btn => btn.classList.add('social-hidden'));
