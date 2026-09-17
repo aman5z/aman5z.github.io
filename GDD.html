@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Drive Folder Downloader</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8; color: #1f2937;
+  }
+  .wrap { max-width: 900px; margin: auto; }
+  .card {
+    background: white; border-radius: 14px; padding: 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+  }
+  h1 { margin-top: 0; }
+  p { color: #5b6470; line-height: 1.5; }
+  textarea {
+    width: 100%; min-height: 220px; resize: vertical;
+    padding: 14px; border: 1px solid #cbd5e1;
+    border-radius: 10px; font: 14px Consolas, monospace;
+  }
+  .buttons { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  button {
+    border: 0; border-radius: 9px; padding: 12px 18px;
+    cursor: pointer; font-weight: 600;
+  }
+  #prepare { background:#2563eb; color:white; }
+  #download { background:#16a34a; color:white; }
+  #clear { background:#e5e7eb; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .status {
+    margin-top:18px; padding:12px; background:#f8fafc;
+    border-radius:10px; white-space:pre-wrap;
+  }
+  .folder {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:10px 0; border-bottom:1px solid #e5e7eb;
+  }
+  .folder:last-child { border-bottom:0; }
+  .small { font-size:12px; color:#64748b; word-break:break-all; }
+  .download-one { background:#e2e8f0; padding:8px 12px; }
+  .note {
+    margin-top:16px; padding:12px; border-left:4px solid #f59e0b;
+    background:#fffbeb; font-size:13px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Google Drive Folder Downloader</h1>
+    <p>
+      Paste public Google Drive folder links below, one per line. The page extracts
+      the folder IDs and gives you <b>Preview</b> and <b>Download</b> options.
+    </p>
+
+    <textarea id="links" placeholder="Paste Google Drive folder links here...
+Example:
+https://drive.google.com/open?id=1coYLwTdoAARjQJtV8A961dOR9-sa_vrS
+https://drive.google.com/open?id=1jFQCB5g_2XC-lEmJzKIWJo2kdS8e4qbF
+https://drive.google.com/open?id=1ZC7CHeyEIkWQgoM-bWTdqtioGrWhXgQ3"></textarea>
+
+    <div class="buttons">
+      <button id="prepare">Prepare Downloads</button>
+      <button id="download" disabled>Download All</button>
+      <button id="clear">Clear</button>
+    </div>
+
+    <div id="status" class="status">Waiting for links...</div>
+    <div id="folders"></div>
+
+    <div class="note">
+      <b>Preview:</b> The Preview button opens the public Google Drive folder,
+      where you can see thumbnails, filenames and individual files before downloading.
+      <br><br>
+      <b>Important:</b> Chrome/Edge may block multiple automatic downloads.
+      If that happens, use the individual Download buttons. Google Drive may also
+      show a confirmation page for a large folder ZIP.
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const linksBox = document.getElementById('links');
+  const prepareBtn = document.getElementById('prepare');
+  const downloadBtn = document.getElementById('download');
+  const clearBtn = document.getElementById('clear');
+  const status = document.getElementById('status');
+  const folders = document.getElementById('folders');
+
+  let ids = [];
+
+  function extractId(text) {
+    // Handles:
+    // https://drive.google.com/open?id=ID
+    // https://drive.google.com/drive/folders/ID
+    // https://drive.google.com/drive/u/0/folders/ID
+    const patterns = [
+      /[?&]id=([a-zA-Z0-9_-]{20,})/,
+      /\/folders\/([a-zA-Z0-9_-]{20,})/
+    ];
+    for (const re of patterns) {
+      const m = text.match(re);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function makeDownloadUrl(id) {
+    // Google Drive's public download endpoint.
+    return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+  }
+
+  function prepare() {
+    const lines = linksBox.value.split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+    const found = [];
+    const seen = new Set();
+
+    for (const line of lines) {
+      const id = extractId(line);
+      if (id && !seen.has(id)) {
+        seen.add(id);
+        found.push(id);
+      }
+    }
+
+    ids = found;
+    folders.innerHTML = '';
+
+    if (!ids.length) {
+      status.textContent = 'No valid Google Drive folder IDs found.';
+      downloadBtn.disabled = true;
+      return;
+    }
+
+    status.textContent = ids.length + ' folder(s) ready.';
+    downloadBtn.disabled = false;
+
+    ids.forEach((id, i) => {
+      const row = document.createElement('div');
+      row.className = 'folder';
+
+      const info = document.createElement('div');
+      info.innerHTML =
+        '<b>Folder ' + (i + 1) + '</b><div class="small">' + id + '</div>';
+
+      const actions = document.createElement('div');
+      actions.style.display = 'flex';
+      actions.style.gap = '8px';
+      actions.style.flexWrap = 'wrap';
+
+      const previewBtn = document.createElement('button');
+      previewBtn.className = 'download-one';
+      previewBtn.textContent = 'Preview';
+      previewBtn.type = 'button';
+      previewBtn.addEventListener('click', () => {
+        window.open(
+          'https://drive.google.com/drive/folders/' + encodeURIComponent(id),
+          '_blank'
+        );
+      });
+
+      const btn = document.createElement('button');
+      btn.className = 'download-one';
+      btn.textContent = 'Download';
+      btn.type = 'button';
+      btn.addEventListener('click', () => {
+        window.open(makeDownloadUrl(id), '_blank');
+      });
+
+      actions.appendChild(previewBtn);
+      actions.appendChild(btn);
+      row.appendChild(info);
+      row.appendChild(actions);
+      folders.appendChild(row);
+    });
+  }
+
+  async function downloadAll() {
+    if (!ids.length) return;
+
+    status.textContent =
+      'Starting ' + ids.length + ' download(s)...\\n' +
+      'If your browser blocks multiple downloads, use the individual buttons below.';
+
+    // Open one at a time with a small delay.
+    for (let i = 0; i < ids.length; i++) {
+      window.open(makeDownloadUrl(ids[i]), '_blank');
+      await new Promise(r => setTimeout(r, 1200));
+    }
+  }
+
+  prepareBtn.addEventListener('click', prepare);
+  downloadBtn.addEventListener('click', downloadAll);
+  clearBtn.addEventListener('click', () => {
+    linksBox.value = '';
+    ids = [];
+    folders.innerHTML = '';
+    status.textContent = 'Waiting for links...';
+    downloadBtn.disabled = true;
+  });
+
+  // Pre-fill the three links from the user's message.
+  linksBox.value = [
+    'https://drive.google.com/open?id=1coYLwTdoAARjQjV8A961dOR9-sa_vrS',
+    'https://drive.google.com/open?id=1jFQCB5g_2XC-lEmJzKIWJo2kdS8e4qbF',
+    'https://drive.google.com/open?id=1ZC7CHeyEIkWQgoM-bWTdqtioGrWhXgQ3'
+  ].join('\n');
+})();
+</script>
+</body>
+</html>
