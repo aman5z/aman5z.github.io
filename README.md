@@ -19,9 +19,9 @@
 name: Aman Faizal
 location: Sharjah, UAE 🇦🇪
 role: IT Administrator @ Gulf Asian English School
-users_supported: 7,000+
+users_supported: 6,900+
 experience: 4+ years
-certifications: [CEH, RHCE, Google IT Support, Udemy CompTIA Security+, DevOps IBM]
+certifications: [CEH v13, Advanced Penetration Tester, Google IT Support Professional, Linux & Cloud Internship (RHCE/AWS/DevOps)]
 ```
 
 ---
@@ -36,13 +36,14 @@ certifications: [CEH, RHCE, Google IT Support, Udemy CompTIA Security+, DevOps I
 - Sophos XGS 4500 HA Firewall
 - Aruba 5406R zl2 switches + QNAP NAS
 - Windows Server, Active Directory, M365
-- 170+ PCs, 190+ smartboards, CCTV, biometrics
+- 200+ PCs, 180+ smartboards, CCTV, biometrics
 
 </td>
 <td valign="top" width="50%">
 
 ### 🔐 Cybersecurity & Penetration Testing
-- **Certified Ethical Hacker (CEH)** — EC-Council 2025
+- **Certified Ethical Hacker (CEH v13)** — EC-Council 2025
+- **Advanced Penetration Tester** — RedTeam Hacker Academy 2024
 - Network auditing & vulnerability assessments
 - Custom tools: WiFi Deauther, WiFi Duck
 - Enterprise & home network hardening
@@ -91,19 +92,20 @@ certifications: [CEH, RHCE, Google IT Support, Udemy CompTIA Security+, DevOps I
 | 🔐 **WiFi Security Tools** | Ethical deauth + HID attack tools (802.11 demos) | ESP8266, Arduino |
 | 📊 **ZKTeco Attendance Dashboard** | Flask web app replacing legacy attendance system | Python, Flask, ZKTeco SDK |
 | 🏍️ **Motorcycle IoT Ignition** | Keyless start via voice/WearOS/RF | ESP8266, RF modules, Relay |
+| 🧾 **PC Inventory Toolkit** | PowerShell inventory system for 200+ campus PCs | PowerShell, WMI/CIM |
+| 📨 **School Circular Bulk Sender** | Automated bulk PDF circular distribution to staff & parents | Automation, PDF |
 
 ---
 
 ## 📜 Certifications
 
 <p align="center">
-  <img src="https://img.shields.io/badge/CEH-Certified_Ethical_Hacker-red?style=for-the-badge&logo=ec-council&logoColor=white" />
+  <img src="https://img.shields.io/badge/CEH_v13-Certified_Ethical_Hacker-red?style=for-the-badge&logo=ec-council&logoColor=white" />
+  <img src="https://img.shields.io/badge/RedTeam_Hacker_Academy-Advanced_Pentester-black?style=for-the-badge&logo=hackaday&logoColor=white" />
   <img src="https://img.shields.io/badge/Google_IT_Support-Professional-4285F4?style=for-the-badge&logo=google&logoColor=white" />
-  <img src="https://img.shields.io/badge/CompTIA-Security%2B-E00000?style=for-the-badge&logo=comptia&logoColor=white" />
-  <img src="https://img.shields.io/badge/RHCE-Red_Hat-EE0000?style=for-the-badge&logo=redhat&logoColor=white" />
-  <img src="https://img.shields.io/badge/AWS-Solutions_Architect-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" />
-  <img src="https://img.shields.io/badge/DevOps-IBM_Coursera-052FAD?style=for-the-badge&logo=ibm&logoColor=white" />
+  <img src="https://img.shields.io/badge/Scope-Linux_%26_Cloud_Internship-EE0000?style=for-the-badge&logo=linux&logoColor=white" />
   <img src="https://img.shields.io/badge/Apple_ATLAS-318_Courses-555555?style=for-the-badge&logo=apple&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jetking-Network_%26_System_Admin_Diploma-003366?style=for-the-badge&logo=cisco&logoColor=white" />
 </p>
 
 ---
