@@ -1090,6 +1090,7 @@ footer {
 }
 footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 [data-theme="light"] footer span { font-family: 'Poppins', sans-serif; }
+.footer-privacy-note { width: 100%; text-align: center; opacity: .75; }
 
 /* ══════════════════════════════════════════
    LIGHTBOX
@@ -2024,6 +2025,7 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
 <footer>
   <span>// Aman Faizal — Portfolio</span>
   <span>Copyright &#169; <span id="footer-year"></span> @aman5z.in</span>
+  <span class="footer-privacy-note">Anonymous visit analytics (approximate location, no exact IP) may be logged for site insights.</span>
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
@@ -2160,5 +2162,6 @@ footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted
   });
 
 </script>
+<script src="visitor-tracker.js" defer></script>
 </body>
 </html>
